@@ -3,6 +3,7 @@ import './App.css';
 import { Tabs, Menu, Dropdown, Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import TypeScriptEditor from './TypeScriptEditor';
+import PythonEditor from './PythonEditor';
 
 const { TabPane } = Tabs;
 
@@ -62,7 +63,7 @@ function App() {
             </Button>
           </Dropdown>
         } key="3">
-          <p>Python editor component here</p>
+          <PythonEditor initialValue={initialValue} />
         </TabPane>
         <TabPane tab={
           <Dropdown overlay={menu} trigger={['click']}>
