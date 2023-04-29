@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import TypeScriptEditor from './TypeScriptEditor';
+import CodeEditor from './TextEditor';
 
 function App() {
   return (
     <div>
       <h1>Code Editor</h1>
-      <TypeScriptEditor initialValue={'console.log("hello world")'}></TypeScriptEditor>
+      <CodeEditor initialValue={''} />
     </div>
   );
 }
