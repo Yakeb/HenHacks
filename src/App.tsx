@@ -1,10 +1,14 @@
 import React from 'react';
 import './App.css';
+<<<<<<< HEAD
 import CodeEditor from './TextEditor';
 import { Tabs, Menu, Dropdown, Button } from 'antd';
 //import { DownOutlined } from '@ant-design/icons';
 
 const { TabPane } = Tabs;
+=======
+import TypeScriptEditor from './TypeScriptEditor';
+>>>>>>> parent of 9ef45f8... reverted changes
 
 function App() {
   const menu = (
@@ -36,7 +40,11 @@ function App() {
   return (
     <div>
       <h1>Code Editor</h1>
+<<<<<<< HEAD
       <CodeEditor initialValue={'console.log("hello world")'}></CodeEditor>
+=======
+      <TypeScriptEditor initialValue={'console.log("hello world")'}></TypeScriptEditor>
+>>>>>>> parent of 9ef45f8... reverted changes
     </div>
   );
 }
