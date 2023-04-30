@@ -10,15 +10,25 @@ function App() {
   const initialTSText = require('!!raw-loader!./ExampleFiles/initialTS.txt')
   const initialHTMLText = require('!!raw-loader!./ExampleFiles/initialHTML.txt')
   const initialCSSText = require('!!raw-loader!./ExampleFiles/initialCSS.txt')
+
   return (
     <div>
       <title>Womp Nantrim Zoop Splink Mike</title>
-      <h1>TypeScript Editor</h1>
-      <TypeScriptEditor initialValue={initialTSText} />
-      <h2>HTML Editor</h2>
-      <HtmlEditor initialValue={initialHTMLText}></HtmlEditor>
-      <h3>CSS Editor</h3>
-      <CSSEditor initialValue={initialCSSText}></CSSEditor>
+      <h1>Learning Code</h1>
+      <div className="row">
+        <div className="column">
+          <TypeScriptEditor initialValue={initialTSText} />
+          <h3>TypeScript</h3>
+        </div>
+        <div className="column">
+          <HtmlEditor initialValue={initialHTMLText}/>
+          <h3>HTML</h3>
+        </div>
+        <div className="column">
+          <CSSEditor initialValue={initialCSSText}/>
+          <h3>CSS</h3>
+        </div>
+      </div>
       <h4>User Display</h4>
       <UserDisplay typescriptCode={''} htmlCode={''} cssCode={''}></UserDisplay>
     </div>

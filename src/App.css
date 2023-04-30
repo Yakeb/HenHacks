@@ -50,3 +50,17 @@
     transform: rotate(360deg);
   }
 }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.column {
+  flex-basis: calc(33.33% - 20px);
+  margin: 10px;
+}
+body {
+  background-color: #87CEEB;
+}
