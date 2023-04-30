@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+//import React, { useState } from 'react';
 import './App.css';
-import CodeEditor from './TypeScriptEditor';
+import HtmlEditor from './HTMLEditor';
+import TypeScriptEditor from './TypeScriptEditor';
 
 function App() {
   return (
     <div>
-      <h1>Code Editor</h1>
-      <CodeEditor initialValue={''} />
+      <h1>TypeScript Editor</h1>
+      <TypeScriptEditor initialValue={''} />
+      <h2>HTML Editor</h2>
+      <HtmlEditor initialValue={''}></HtmlEditor>
     </div>
   );
 };
