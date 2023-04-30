@@ -1,53 +1,130 @@
-.App {
-  text-align: center;
-}
+		:root {
+		  --main-bg-color: #f7f7f7;
+		  --header-bg-color: #333;
+		  --header-text-color: #fff;
+		  --editor-bg-color: #fff;
+		  --editor-border-color: #ccc;
+		  --editor-heading-bg-color: #eee;
+		  --editor-heading-text-color: #333;
+		  --editor-code-color: #333;
+		  --display-bg-color: #fff;
+		  --display-border-color: #ccc;
+		  --display-heading-bg-color: #eee;
+		  --display-heading-text-color: #333;
+		  --display-result-color: #333;
+		}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+		* {
+		  box-sizing: border-box;
+		  margin: 0;
+		  padding: 0;
+		}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+		body {
+		  background-color: var(--main-bg-color);
+		  font-family: 'Open Sans', sans-serif;
+		}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+		h1, h2, h3, h4, h5, h6 {
+		  font-weight: bold;
+		  margin-bottom: 1rem;
+		}
 
-.App-link {
-  color: #61dafb;
-}
+		a {
+		  color: inherit;
+		  text-decoration: none;
+		}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 40px;
-}
+		ul {
+		  list-style: none;
+		}
 
-.grid-item {
-  border: 1px solid black;
-  padding: 10px;
-  background-color: lightgray;
-}
+		.app-container {
+		  max-width: 1200px;
+		  margin: 0 auto;
+		  padding: 1rem;
+		  display: grid;
+		  grid-template-columns: repeat(3, 1fr);
+		  grid-gap: 1rem;
+		}
 
-html-editor, css-editor {
-  height: 400px;
-}
+		.app-header {
+		  background: var(--header-bg-color);
+		  color: var(--header-text-color);
+		  padding: 1rem;
+		  text-align: center;
+		  grid-column: 1 / 4;
+		}
+
+		.app-header h1 {
+		  font-size: 2.5rem;
+		}
+
+		.app-main {
+		  display: flex;
+		  justify-content: flex-end;
+		  grid-column: 1 / 4;
+		}
+
+		.editor-container {
+		  background: var(--display-bg-color);
+		  border: 1px solid var(--display-border-color);
+		  border-radius: 0.5rem;
+		  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+		  padding: 1rem;
+		  width: 500px;
+		}
+
+		.editor {
+		  background: var(--editor-bg-color);
+		  border-color: var(--editor-border-color);
+		  margin-bottom: 1rem;
+      width:480px;
+      margin-right: 20px;
+		}
+
+		.editor:last-child {
+		  margin-bottom: 0;
+		}
+
+		.editor h2 {
+		  background: var(--editor-heading-bg-color);
+		  color: var(--editor-heading-text-color);
+		  font-size: 1.2rem;
+		  font-weight: bold;
+		  padding: 0.5rem;
+		  text-align: center;
+		}
+
+		.editor textarea {
+		  border: none;
+		  color: var(--editor-code-color);
+		  font: var(--editor-code-font-size) 'Courier New', Courier, monospace;
+		  height: 300px;
+		  outline: none;
+		  resize: none;
+		  width: 100%;
+		}
+    .display-container {
+      background: var(--display-bg-color);
+      border: 1px solid var(--display-border-color);
+      border-radius: 0.5rem;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      width: 100%;
+    }
+      
+    .display-container h2 {
+      background: var(--display-heading-bg-color);
+      color: var(--display-heading-text-color);
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    
+    .display-container p {
+      color: var(--display-result-color);
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
