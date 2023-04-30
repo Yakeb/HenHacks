@@ -1,18 +1,20 @@
-import React, { useState, useRef } from "react";
+/* eslint-disable @typescript-eslint/no-use-before-define */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useRef } from "react";
 import Editor from "@monaco-editor/react";
 import * as monaco from "monaco-editor/esm/vs/editor/editor.api";
 
-interface CodeEditorProps {
-  initialValue: string;
+interface CSSEditorProps {
+  cssCode: string;
+  onCssCodeChange: (value: string) => void;
 }
 
-const CSSEditor: React.FC<CodeEditorProps> = ({ initialValue }) => {
-  const [cssCode, setcssCode] = useState(initialValue);
+const CSSEditor: React.FC<CSSEditorProps> = ({ cssCode, onCssCodeChange }) => {
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
 
   const handleCodeChange = (value: string | undefined) => {
     if (value !== undefined) {
-      setcssCode(value);
+      onCssCodeChange(value);
     }
   };
 
@@ -37,12 +39,12 @@ const CSSEditor: React.FC<CodeEditorProps> = ({ initialValue }) => {
       },
     });
     monacoRef.languages.css.cssDefaults.setOptions({
-    //  tabSize: 2,
-    //  insertSpaces: true,
-    //  trimTrailingWhitespace: true,
-    //  wordWrap: "on",
-    //  wrappingIndent: "indent",
-    //  folding: true,
+      //  tabSize: 2,
+      //  insertSpaces: true,
+      //  trimTrailingWhitespace: true,
+      //  wordWrap: "on",
+      //  wrappingIndent: "indent",
+      //  folding: true,
     });
   };
 
@@ -51,7 +53,6 @@ const CSSEditor: React.FC<CodeEditorProps> = ({ initialValue }) => {
       <Editor
         height="300px"
         defaultLanguage="css"
-        defaultValue={cssCode}
         value={cssCode}
         theme="vs-dark"
         onChange={handleCodeChange}
@@ -63,10 +64,6 @@ const CSSEditor: React.FC<CodeEditorProps> = ({ initialValue }) => {
       />
     </div>
   );
-};
-
-CSSEditor.defaultProps = {
-  initialValue: "",
 };
 
 export default CSSEditor;

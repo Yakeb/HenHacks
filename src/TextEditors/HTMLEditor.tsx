@@ -1,18 +1,22 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useRef } from "react";
 import Editor from "@monaco-editor/react";
 import * as monaco from "monaco-editor/esm/vs/editor/editor.api";
 
 interface CodeEditorProps {
   initialValue: string;
+  onHtmlCodeChange: (code: string) => void;
 }
 
-const HTMLEditor: React.FC<CodeEditorProps> = ({ initialValue }) => {
-  const [htmlCode, sethtmlCode] = useState(initialValue);
+const HTMLEditor: React.FC<CodeEditorProps> = ({
+  initialValue,
+  onHtmlCodeChange,
+}) => {
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
 
   const handleCodeChange = (value: string | undefined) => {
     if (value !== undefined) {
-      sethtmlCode(value);
+      onHtmlCodeChange(value);
     }
   };
 
@@ -25,10 +29,10 @@ const HTMLEditor: React.FC<CodeEditorProps> = ({ initialValue }) => {
 
     // Set up the HTML environment
     monacoRef.languages.html.htmlDefaults.setOptions({
-     // tabSize: 2,
-     // insertSpaces: true,
-     // wrapLineLength: 0,
-      //unformatted: "",
+      // tabSize: 2,
+      // insertSpaces: true,
+      // wrapLineLength: 0,
+      // unformatted: "",
       // Add any additional HTML format options here
     });
   };
@@ -38,8 +42,8 @@ const HTMLEditor: React.FC<CodeEditorProps> = ({ initialValue }) => {
       <Editor
         height="300px"
         defaultLanguage="html"
-        defaultValue={htmlCode}
-        value={htmlCode}
+        //defaultValue={initialValue}
+        value={initialValue}
         theme="vs-dark"
         onChange={handleCodeChange}
         onMount={handleEditorDidMount}
