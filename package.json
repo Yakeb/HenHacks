@@ -24,9 +24,6 @@
     "vm": "^0.1.0",
     "web-vitals": "^2.1.4"
   },
-    "compilerOptions": {
-        "types": ["raw-loader.d.ts", "node"]
-    },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -39,12 +36,6 @@
       "react-app/jest"
     ]
   },
-    "devDependencies": {
-      "raw-loader": "^0.5.1",
-      "ts-loader": "^3.1.1",
-      "typescript": "^2.6.1",
-      "webpack": "^3.8.1"
-    }, 
   "browserslist": {
     "production": [
       ">0.2%",

@@ -1,21 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 interface CombinedCodeProps {
-  typescriptCode: string;
   htmlCode: string;
   cssCode: string;
 }
 
 const UserDisplay: React.FC<CombinedCodeProps> = ({
-  typescriptCode,
   htmlCode,
   cssCode,
 }) => {
-  const combinedCode = `
+  const [combinedCode, setCombinedCode] = useState(`
     <style>${cssCode}</style>
     ${htmlCode}
-    <script>${typescriptCode}</script>
-  `;
+  `);
+
+  useEffect(() => {
+    setCombinedCode(`
+      <style>${cssCode}</style>
+      ${htmlCode}
+    `);
+  }, [htmlCode, cssCode]);
 
   return (
     <div

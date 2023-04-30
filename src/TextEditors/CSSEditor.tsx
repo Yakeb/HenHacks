@@ -49,7 +49,7 @@ const CSSEditor: React.FC<CodeEditorProps> = ({ initialValue }) => {
   return (
     <div style={{ display: "flex", background: "black" }}>
       <Editor
-        height="500px"
+        height="300px"
         defaultLanguage="css"
         defaultValue={cssCode}
         value={cssCode}

@@ -3,6 +3,7 @@ const button = document.querySelector('button')!;
 button.addEventListener('click', () => {
   const color = getRandomColor();
   document.body.style.backgroundColor = color;
+  button.style.backgroundColor = color;
 });
 
 function getRandomColor(): string {

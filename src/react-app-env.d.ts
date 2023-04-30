@@ -1,6 +1,6 @@
 /// <reference types="react-scripts" />
 declare module '*.txt' {
-    const content: string;
+    const content: any;
     export default content;
   }
 const path = require('path');
@@ -13,8 +13,10 @@ const config = {
   },
   module: {
     rules: [
-      { test: /\.txt/, use: 'raw-loader' },
-      { test: /\.tsx?$/, loader: 'ts-loader' },
+      { test: /\.txt$/, use: 'raw-loader' },
+      { test: /\.ts?$/, loader: 'ts-loader' },
+      { test: /\.css?$/, loader: 'css-loader' },
+      { test: /\.html?$/, loader: 'html-loader' }
     ]
   }
 };

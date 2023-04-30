@@ -36,7 +36,7 @@ const HTMLEditor: React.FC<CodeEditorProps> = ({ initialValue }) => {
   return (
     <div style={{ display: "flex", background: "black" }}>
       <Editor
-        height="500px"
+        height="300px"
         defaultLanguage="html"
         defaultValue={htmlCode}
         value={htmlCode}
