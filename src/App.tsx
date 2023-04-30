@@ -3,10 +3,11 @@ import './App.css';
 import CSSEditor from './TextEditors/CSSEditor';
 import HTMLEditor from './TextEditors/HTMLEditor';
 import UserDisplay from './UserDisplay';
+import * as fs from 'fs';
 
 function App() {
-  const initialHTMLText = require('!!raw-loader!./ExampleFiles/initialHTML.html');
-  const initialCSSText = require('!!raw-loader!./ExampleFiles/initialCSS.css');
+  const initialHTMLText: string = 'src\ExampleFiles\initialHTML.txt';
+  const initialCSSText : string = 'src\ExampleFiles\initialCSS.txt';;
 
   const [cssCode, setCssCode] = useState(initialCSSText);
   const handleCssCodeChange = (value: string) => {
