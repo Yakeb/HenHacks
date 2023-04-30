@@ -6,13 +6,13 @@ interface CodeEditorProps {
   initialValue: string;
 }
 
-const HTMLEditor: React.FC<CodeEditorProps> = ({ initialValue }) => {
-  const [code, setCode] = useState(initialValue);
+const CSSEditor: React.FC<CodeEditorProps> = ({ initialValue }) => {
+  const [cssCode, setcssCode] = useState(initialValue);
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
 
   const handleCodeChange = (value: string | undefined) => {
     if (value !== undefined) {
-      setCode(value);
+      setcssCode(value);
     }
   };
 
@@ -23,23 +23,36 @@ const HTMLEditor: React.FC<CodeEditorProps> = ({ initialValue }) => {
     // Save the editor instance to a ref for later use
     editorRef.current = editor;
 
-    // Set up the HTML environment
-    monacoRef.languages.html.htmlDefaults.setOptions({
-     // tabSize: 2,
-     // insertSpaces: true,
-     // wrapLineLength: 0,
-      //unformatted: "",
-      // Add any additional HTML format options here
+    // Set up the CSS environment
+    monacoRef.languages.css.cssDefaults.setDiagnosticsOptions({
+      lint: {
+        compatibleVendorPrefixes: "ignore",
+        vendorPrefix: "warning",
+        duplicateProperties: "warning",
+        emptyRules: "warning",
+        importStatement: "ignore",
+        boxModel: "ignore",
+        universalSelector: "ignore",
+        zeroUnits: "warning",
+      },
+    });
+    monacoRef.languages.css.cssDefaults.setOptions({
+    //  tabSize: 2,
+    //  insertSpaces: true,
+    //  trimTrailingWhitespace: true,
+    //  wordWrap: "on",
+    //  wrappingIndent: "indent",
+    //  folding: true,
     });
   };
 
   return (
     <div style={{ display: "flex", background: "black" }}>
       <Editor
-        height="500px"
-        defaultLanguage="html"
-        defaultValue={code}
-        value={code}
+        height="300px"
+        defaultLanguage="css"
+        defaultValue={cssCode}
+        value={cssCode}
         theme="vs-dark"
         onChange={handleCodeChange}
         onMount={handleEditorDidMount}
@@ -52,8 +65,8 @@ const HTMLEditor: React.FC<CodeEditorProps> = ({ initialValue }) => {
   );
 };
 
-HTMLEditor.defaultProps = {
+CSSEditor.defaultProps = {
   initialValue: "",
 };
 
-export default HTMLEditor;
+export default CSSEditor;

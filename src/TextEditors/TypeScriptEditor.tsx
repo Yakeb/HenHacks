@@ -7,12 +7,12 @@ interface CodeEditorProps {
 }
 
 const TypeScriptEditor: React.FC<CodeEditorProps> = ({ initialValue }) => {
-  const [code, setCode] = useState(initialValue);
+  const [tsCode, settsCode] = useState(initialValue);
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
 
   const handleCodeChange = (value: string | undefined) => {
     if (value !== undefined) {
-      setCode(value);
+      settsCode(value);
     }
   };
 
@@ -41,10 +41,10 @@ const TypeScriptEditor: React.FC<CodeEditorProps> = ({ initialValue }) => {
   return (
     <div style={{ display: "flex", background: "black" }}>
       <Editor
-        height="500px"
+        height="300px"
         defaultLanguage="typescript"
-        defaultValue={code}
-        value={code}
+        defaultValue={tsCode}
+        value={tsCode}
         theme="vs-dark"
         onChange={handleCodeChange}
         onMount={handleEditorDidMount}
